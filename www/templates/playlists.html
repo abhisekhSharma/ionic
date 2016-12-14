@@ -1,0 +1,15 @@
+<div class="ned-tabel">
+    <ion-header-bar class="bar-stable" style="">
+
+    </ion-header-bar>
+    <ion-content>
+        <div class="row header">
+            <div class="col">Country Name</div>
+            <div class="col">Country Code</div>>
+        </div>
+        <div class="row" ng-repeat="(a, b) in data.RestResponse.result">
+            <div class="col">{{a}}</div>
+            <div class="col">{{b}}</div>
+        </div>
+    </ion-content>
+</div>
