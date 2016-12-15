@@ -82,7 +82,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             url: '/playlists',
             views: {
                 'tab-account': {
-                    templateUrl: 'templates/Playlists.html',
+                    templateUrl: 'templates/playlists.html',
                     controller: 'PlaylistCtrl'
                 }
             }
