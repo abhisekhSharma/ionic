@@ -1,13 +1,4 @@
 {
-  "name": "nedbank",
-  "app_id": "",
-  "gulpStartupTasks": [
-    "sass",
-    "watch"
-  ],
-  "watchPatterns": [
-    "www/**/*",
-    "!www/lib/**/*",
-    "!www/**/*.map"
-  ]
+  "name": "nedBankUI",
+  "app_id": ""
 }

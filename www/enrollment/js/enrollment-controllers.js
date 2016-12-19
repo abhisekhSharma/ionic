@@ -12,7 +12,4 @@ angular.module('nedBank.controllers', [])
     })
     .controller('menuCtrl', function($scope, $stateParams, $http) {
         console.log('Menu Ctrl');
-    })
-    .controller('onboardingCtrl', function($scope, $stateParams, $http) {
-        console.log('onboardingCtrl Ctrl');
     });
