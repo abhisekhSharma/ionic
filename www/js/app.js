@@ -1,4 +1,4 @@
-define(['../enrollment/js/enrollment', '../onboarding/js/onboarding'], function() {
+define(['../modules/enrollment/js/enrollment', '../modules/onboarding/js/onboarding'], function() {
     // Ionic Starter App
 
     // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -27,7 +27,7 @@ define(['../enrollment/js/enrollment', '../onboarding/js/onboarding'], function(
         $stateProvider
             .state('app', {
                 url: '/app',
-                templateUrl: 'enrollment/templates/menu.html',
+                templateUrl: 'modules/enrollment/templates/menu.html',
                 abstract: true
             })
 
@@ -35,7 +35,7 @@ define(['../enrollment/js/enrollment', '../onboarding/js/onboarding'], function(
             url: '/home',
             views: {
                 'menuContent': {
-                    templateUrl: 'enrollment/templates/home.html',
+                    templateUrl: 'modules/enrollment/templates/home.html',
                     controller: 'homeCtrl'
                 }
             }
@@ -45,7 +45,7 @@ define(['../enrollment/js/enrollment', '../onboarding/js/onboarding'], function(
             url: '/onboarding',
             views: {
                 'menuContent': {
-                    templateUrl: 'onboarding/templates/onboarding.html',
+                    templateUrl: 'modules/onboarding/templates/onboarding.html',
                     controller: 'onboardingCtrl'
                 }
             }
@@ -55,7 +55,7 @@ define(['../enrollment/js/enrollment', '../onboarding/js/onboarding'], function(
             url: '/playlists',
             views: {
                 'menuContent': {
-                    templateUrl: 'enrollment/templates/playlists.html',
+                    templateUrl: 'modules/enrollment/templates/playlists.html',
                     controller: 'PlaylistsCtrl'
                 }
             }

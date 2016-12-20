@@ -83,7 +83,7 @@
 	        $stateProvider
 	            .state('app', {
 	                url: '/app',
-	                templateUrl: 'enrollment/templates/menu.html',
+	                templateUrl: 'modules/enrollment/templates/menu.html',
 	                abstract: true
 	            })
 
@@ -91,7 +91,7 @@
 	            url: '/home',
 	            views: {
 	                'menuContent': {
-	                    templateUrl: 'enrollment/templates/home.html',
+	                    templateUrl: 'modules/enrollment/templates/home.html',
 	                    controller: 'homeCtrl'
 	                }
 	            }
@@ -101,7 +101,7 @@
 	            url: '/onboarding',
 	            views: {
 	                'menuContent': {
-	                    templateUrl: 'onboarding/templates/onboarding.html',
+	                    templateUrl: 'modules/onboarding/templates/onboarding.html',
 	                    controller: 'onboardingCtrl'
 	                }
 	            }
@@ -111,7 +111,7 @@
 	            url: '/playlists',
 	            views: {
 	                'menuContent': {
-	                    templateUrl: 'enrollment/templates/playlists.html',
+	                    templateUrl: 'modules/enrollment/templates/playlists.html',
 	                    controller: 'PlaylistsCtrl'
 	                }
 	            }
@@ -139,7 +139,6 @@
 	    enrollmentModule.controller('PlaylistsCtrl', PlaylistsCtrl);
 	    enrollmentModule.controller('homeCtrl', homeCtrl);
 	    enrollmentModule.controller('menuCtrl', menuCtrl);
-
 	    console.log('Enrollemnt Controller Binder');
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 

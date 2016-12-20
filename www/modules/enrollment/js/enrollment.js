@@ -8,6 +8,5 @@ define([
     enrollmentModule.controller('PlaylistsCtrl', PlaylistsCtrl);
     enrollmentModule.controller('homeCtrl', homeCtrl);
     enrollmentModule.controller('menuCtrl', menuCtrl);
-
     console.log('Enrollemnt Controller Binder');
 });

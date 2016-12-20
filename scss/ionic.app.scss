@@ -22,5 +22,5 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Added Custome Global Theme
 @import "globalTheme/globalTheme.scss";
 //Added Module Overwrites
-@import "www/enrollment/scss/_enrollment";
-@import "www/onboarding/scss/_onboarding";
+@import "www/modules/enrollment/scss/_enrollment";
+@import "www/modules/onboarding/scss/_onboarding";

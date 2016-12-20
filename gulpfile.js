@@ -7,26 +7,19 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 
-/* Custome Added Task for ES6*/
-var babel = require("gulp-babel");
-var plumber = require("gulp-plumber");
-/* End of Custome Added Task for ES6*/
+// Custome Added for Lint and Hint
+var jshint = require('gulp-jshint');
+var sassLint = require('gulp-sass-lint');
+// End of Custome Added
 
 
 var paths = {
-    es6: ['./www/js/*.js', './www/**/js/*.js'],
-    sass: ['./scss/**/*.scss']
+    sass: ['./scss/*.scss', './scss/**/*.scss', './www/modules/**/scss/*.scss'],
+    jsHint: ['./www/modules/**/*.js', './www/js/*.js']
 };
 
-gulp.task('default', ['babel', 'sass']);
 
-gulp.task("babel", function() {
-    return gulp.src(paths.es6)
-        .pipe(plumber())
-        .pipe(babel({ presets: ['es2015'] }))
-        .pipe(gulp.dest("www/js"));
-});
-
+gulp.task('default', ['watch-sass', 'watch-lint', 'sass']);
 
 gulp.task('sass', function(done) {
     gulp.src('./scss/ionic.app.scss')
@@ -39,11 +32,6 @@ gulp.task('sass', function(done) {
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest('./www/css/'))
         .on('end', done);
-});
-
-gulp.task('watch', ['sass'], function() {
-    gulp.watch(paths.es6, ['babel']);
-    gulp.watch(paths.sass, ['sass']);
 });
 
 gulp.task('install', ['git-check'], function() {
@@ -65,3 +53,42 @@ gulp.task('git-check', function(done) {
     }
     done();
 });
+
+// Custome Added
+
+// This will run sass and watch with ionic serve also updtaed some paths in ionic.config.json in watch pattern
+gulp.task('serve:before', ['sass', 'watch']);
+
+
+gulp.task('lint', function() {
+    return gulp.src(paths.jsHint)
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('sass-lint', function() {
+    return gulp.src(paths.sass)
+        .pipe(sassLint())
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
+});
+
+gulp.task('watch', function() {
+    gulp.watch(paths.sass, ['sass-lint']);
+    gulp.watch(paths.sass, ['sass']);
+    gulp.watch(paths.jsHint, ['lint']);
+});
+
+
+// Watch Sass Only
+gulp.task('watch-sass', function() {
+    gulp.watch(paths.sass, ['sass']);
+    gulp.watch(paths.sass, ['sass-lint']);
+});
+
+// Watch Hint only 
+gulp.task('watch-lint', function() {
+    gulp.watch(paths.jsHint, ['lint']);
+});
+
+// End Custome Added
