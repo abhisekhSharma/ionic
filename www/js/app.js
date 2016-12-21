@@ -1,11 +1,13 @@
-define(['../modules/enrollment/js/enrollment', '../modules/onboarding/js/onboarding'], function() {
+define(['../modules/enrollment/js/enrollment', 
+        '../modules/onboarding/js/onboarding',
+        './routes'], function() {
     // Ionic Starter App
 
     // angular.module is a global place for creating, registering and retrieving Angular modules
     // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
     // the 2nd parameter is an array of 'requires'
     // 'starter.controllers' is found in controllers.js
-    angular.module('nedBank', ['ionic', 'nedBank.enrollment', 'nedBank.onBoarding'])
+    angular.module('nedBank', ['ionic', 'nedBank.enrollment', 'nedBank.onBoarding','nedBank.route'])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -21,50 +23,6 @@ define(['../modules/enrollment/js/enrollment', '../modules/onboarding/js/onboard
                 StatusBar.styleDefault();
             }
         });
-    })
-
-    .config(function($stateProvider, $urlRouterProvider) {
-        $stateProvider
-            .state('app', {
-                url: '/app',
-                templateUrl: 'modules/enrollment/templates/menu.html',
-                abstract: true
-            })
-
-        .state('app.home', {
-            url: '/home',
-            views: {
-                'menuContent': {
-                    templateUrl: 'modules/enrollment/templates/home.html',
-                    controller: 'homeCtrl'
-                }
-            }
-        })
-
-        .state('app.onboarding', {
-            url: '/onboarding',
-            views: {
-                'menuContent': {
-                    templateUrl: 'modules/onboarding/templates/onboarding.html',
-                    controller: 'onboardingCtrl'
-                }
-            }
-        })
-
-        .state('app.playlists', {
-            url: '/playlists',
-            views: {
-                'menuContent': {
-                    templateUrl: 'modules/enrollment/templates/playlists.html',
-                    controller: 'PlaylistsCtrl'
-                }
-            }
-        });
-
-
-
-        // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/home');
     });
 
 });
