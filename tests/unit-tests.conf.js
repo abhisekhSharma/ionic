@@ -1,5 +1,7 @@
 // Karma configuration
 // Generated on Fri Jan 06 2017 12:48:18 GMT+0530 (IST)
+var path = require('path'),
+webpack = require('webpack');
 var webpackConfig = require('../webpack.config.js');
 webpackConfig.entry = {};
 
@@ -36,8 +38,7 @@ module.exports = function(config) {
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             '../www/dist/main.bundle.js': ['webpack'],
-            'unit-tests/*.js*': ['webpack'],
-            'test/**/*_test.js*': ['webpack']
+            '../tests/unit-tests/**/*.js*': ['webpack']
         },
         webpack: webpackConfig,
         webpackMiddleware: {
