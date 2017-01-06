@@ -17,7 +17,10 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
+    "karma-requirejs": "^1.1.0",
     "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "^1.8.1",
+    "requirejs": "^2.3.2",
     "shelljs": "^0.3.0",
     "webpack": "^1.14.0"
   },

@@ -14,14 +14,19 @@ module.exports = function(config) {
 
 
         // list of files / patterns to load in the browser
+        // files: [
+        //     '../www/lib/angular/angular.js',
+        //     '../www/lib/ngCordova/dist/ng-cordova.js',
+        //     '../www/lib/moment.min.js',
+        //     '../www/js/*.js',
+        //     '../www/lib/angular-mocks/angular-mocks.js',
+        //     'unit-tests/*.js'
+        // ],
         files: [
-            '../www/lib/angular/angular.js',
-            '../www/lib/ngCordova/dist/ng-cordova.js',
-            '../www/lib/moment.min.js',
-            '../www/js/*.js',
-            '../www/lib/angular-mocks/angular-mocks.js',
-            'unit-tests/*.js'
-        ],
+            // all files ending in "_test"
+            {pattern: 'unit-tests/*.js', watched: false},
+            // each file acts as entry point for the webpack configuration
+         ],
 
 
         // list of files to exclude
@@ -30,7 +35,24 @@ module.exports = function(config) {
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {},
+        preprocessors: {
+        // add webpack as preprocessor
+            'unit-tests/*.js': ['webpack'],
+            'test/**/*_test.js': ['webpack']
+        },
+        webpack: {
+            // karma watches the test entry points
+            // (you don't need to specify the entry option)
+            // webpack watches dependencies
+
+            // webpack configuration
+        },
+
+        webpackMiddleware: {
+        // webpack-dev-middleware configuration
+        // i. e.
+        stats: 'errors-only'
+        },
 
 
         // test results reporter to use
@@ -63,7 +85,7 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
+        singleRun: true,
 
         // Concurrency level
         // how many browser should be started simultaneous
