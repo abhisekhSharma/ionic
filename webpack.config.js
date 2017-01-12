@@ -9,8 +9,10 @@ module.exports = {
         root: path.resolve(__dirname),
         alias: {
             lib: 'www/lib',
+            app: 'www/js/app',
             angular: 'www/lib/angular/angular',
             angularMocks: 'www/lib/angular-mocks',
+            uiRouter: 'www/lib/angular-ui-router/release/angular-ui-router',
             modules: 'www/modules',
             enrollmentModule: 'www/modules/enrollment'
         },

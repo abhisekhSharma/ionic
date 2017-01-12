@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Fri Jan 06 2017 12:48:18 GMT+0530 (IST)
 var path = require('path'),
-webpack = require('webpack');
+    webpack = require('webpack');
 var webpackConfig = require('../webpack.config.js');
 webpackConfig.entry = {};
 
@@ -20,8 +20,9 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             // all files ending in "_test"
-            '../www/lib/angular/angular.js',
-            '../www/dist/main.bundle.js',
+            './www/lib/angular/angular.js',
+            './www/lib/angular-mocks/angular-mocks.js',
+            './www/dist/main.bundle.js',
             // '../www/js/*.js',
             // '../www/module/**/js/*.js',
             // '../www/module/**/js/controller/*.js',
@@ -73,11 +74,11 @@ module.exports = function(config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
 
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: true
+        singleRun: false
     })
 }
