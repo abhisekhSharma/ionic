@@ -15,7 +15,7 @@ define([], function() {  
             views: {
                 'menuContent': {
                     templateUrl: 'modules/enrollment/templates/home.html',
-                    controller: 'homeCtrl'
+                    controller: 'homeCtrl as vm'
                 }
             }
         })

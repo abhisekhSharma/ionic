@@ -1,21 +1,10 @@
 define([], function() {  
     'use strict';  
-    return function($scope, $stateParams, $http) {   
-        $scope.name = 'Krishank';
-        console.log('Home Ctrl');
+    return function($scope) {
+        $scope.a = 'Ionic' ;  
+        var vm = this;
+        vm.pageName="firstPage";
+        //console.log('Home Ctrl', $scope, vm);
+
     };
 });
-
-// define([], function() {  
-//     'use strict';  
-
-//     var homeControllers = {
-//         defaults: 1,
-//         someMethod: function($scope, $stateParams, $http) {
-//             $scope.name = 'Krishank';
-//             console.log('Home Ctrl');
-//         }
-//     };
-//     homeControllers.someMethod();
-//     return homeControllers;
-// });

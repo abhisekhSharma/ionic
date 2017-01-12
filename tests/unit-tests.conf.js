@@ -15,18 +15,20 @@ module.exports = function(config) {
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jasmine'],
+        plugins: [
+            require("karma-webpack"),
+            'karma-jasmine',
+            'karma-phantomjs-launcher',
+            'karma-mocha-reporter'
+        ],
 
 
         // list of files / patterns to load in the browser
         files: [
             // all files ending in "_test"
-            './www/lib/angular/angular.js',
-            './www/lib/angular-mocks/angular-mocks.js',
-            './www/dist/main.bundle.js',
-            // '../www/js/*.js',
-            // '../www/module/**/js/*.js',
-            // '../www/module/**/js/controller/*.js',
-            { pattern: 'unit-tests/**/*.js', watched: false },
+            '../www/lib/angular/angular.js',
+            '../www/lib/angular-mocks/angular-mocks.js',
+            { pattern: '../tests/unit-tests/**/*.js', watched: false },
             // each file acts as entry point for the webpack configuration
         ],
 
@@ -38,7 +40,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            '../www/dist/main.bundle.js': ['webpack'],
+            './www/dist/www/js/*.js': ['webpack'],
             '../tests/unit-tests/**/*.js*': ['webpack']
         },
         webpack: webpackConfig,
@@ -49,10 +51,25 @@ module.exports = function(config) {
         },
 
 
+
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['mocha'],
+        mochaReporter: {
+            colors: {
+                success: 'blue',
+                info: 'bgGreen',
+                warning: 'cyan',
+                error: 'bgRed'
+            },
+            symbols: {
+                success: '√',
+                info: '#',
+                warning: '!',
+                error: 'x'
+            }
+        },
 
 
         // web server port

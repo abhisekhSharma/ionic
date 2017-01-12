@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var Server = require('karma').Server;
 
 // Custome Added for Lint and Hint
 var jshint = require('gulp-jshint');
@@ -58,6 +59,13 @@ gulp.task('git-check', function(done) {
 
 // This will run sass and watch with ionic serve also updtaed some paths in ionic.config.json in watch pattern
 gulp.task('serve:before', ['sass', 'watch']);
+
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname+'/tests/unit-tests.conf.js',
+    singleRun: true
+  }, done).start();
+});
 
 
 gulp.task('lint', function() {
