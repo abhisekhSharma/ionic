@@ -5,5 +5,6 @@ define([], function() {  
         var vm = this;
         vm.pageName="firstPage";
         //console.log('Home Ctrl', $scope, vm);
+
     };
 });

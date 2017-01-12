@@ -120,6 +120,7 @@
 	        var vm = this;
 	        vm.pageName="firstPage";
 	        //console.log('Home Ctrl', $scope, vm);
+
 	    };
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 

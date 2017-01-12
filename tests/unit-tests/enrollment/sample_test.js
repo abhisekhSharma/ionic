@@ -1,3 +1,4 @@
+
 define(['../../../www/js/app.js'], function(app) {
     
     describe('DashCtrl', function() {
@@ -14,7 +15,10 @@ define(['../../../www/js/app.js'], function(app) {
         describe('home controller', function() {
             it('should have the scope variable', function() {
                 expect(controller.pageName).toEqual('firstPage');
+
+
             });
         });
     });
+
 });
