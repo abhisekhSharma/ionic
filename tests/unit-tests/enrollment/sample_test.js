@@ -1,8 +1,19 @@
-define([], function(require, factory) {
+define(['../../../www/js/app.js'], function(app) {
+    
     describe('DashCtrl', function() {
-        describe('Clicking on the login button', function() {
-            it('should go to my account hhh', function() {
-                expect(1).toEqual(1);
+        
+        beforeEach(angular.mock.module('nedBank.enrollment'));
+       
+       var controller
+        beforeEach(angular.mock.inject(function($rootScope, $controller) {
+            scope = $rootScope.$new();
+            controller = $controller('homeCtrl', {$scope: scope});
+        }));
+        
+
+        describe('home controller', function() {
+            it('should have the scope variable', function() {
+                expect(controller.pageName).toEqual('firstPage');
             });
         });
     });
