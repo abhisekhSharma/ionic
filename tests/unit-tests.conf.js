@@ -19,7 +19,8 @@ module.exports = function(config) {
             require("karma-webpack"),
             'karma-jasmine',
             'karma-phantomjs-launcher',
-            'karma-mocha-reporter'
+            'karma-mocha-reporter',
+            'karma-chrome-launcher'
         ],
 
 
@@ -31,8 +32,6 @@ module.exports = function(config) {
             { pattern: '../tests/unit-tests/**/*.js', watched: false },
             // each file acts as entry point for the webpack configuration
         ],
-
-
         // list of files to exclude
         exclude: [],
 
