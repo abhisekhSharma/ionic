@@ -1,0 +1,95 @@
+$green: #3aaf3a;
+$grey: #666666;
+.enrollment {
+    background: #fff;
+}
+
+.ionic-default {
+    display: none;
+}
+
+.net-container {
+    margin-top: 50px;
+}
+
+.net-container div.row>div {
+    min-height: 150px;
+}
+
+.net-container div.row>div:nth-child(odd) {
+    border-top: 2px solid $grey;
+    border-left: 2px solid $grey;
+    border-bottom: 2px solid $grey;
+    border-right: 2px solid $grey;
+}
+
+.net-container div.row>div:nth-child(even) {
+    border-top: 2px solid $grey;
+    border-bottom: 2px solid $grey;
+    border-right: 2px solid $grey;
+}
+
+.net-container div.row>div:nth-child(3) {
+    border-top: none !important;
+}
+
+.net-container div.row>div:nth-child(4) {
+    border-top: none !important;
+}
+
+.main-headin--green {
+    color: $green;
+}
+
+.net-container div.row>div {
+    position: relative;
+}
+
+.nd-logo {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.tab-nav.tabs {
+    display: none !important;
+}
+
+.row {
+    margin-left: 0px !important;
+}
+
+.dynamic-ul {
+    margin-top: 100px;
+}
+
+body {
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+.ned-tabel .header .col {
+    background-color: lightgrey;
+}
+
+.ned-tabel .col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.ned-tabel .col:last-child {
+    border-right: solid 1px grey;
+}
+
+.ned-tabel .row:last-child .col {
+    border-bottom: solid 1px grey;
+}
+
+.ned-tabel .title.title-center.header-item {
+    background: url(img/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 50%;
+}

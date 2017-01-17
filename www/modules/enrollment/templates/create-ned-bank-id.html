@@ -1,0 +1,25 @@
+<ion-view view-title="Activate Baninking">
+    <ion-content>
+        <form name="nedBankIDuserName" novalidate>
+            <div class="list">
+                <p class="input-label">Nedbak ID Username</p>
+                <label class="item item-input">
+              <input type="text" ng-minlength="5" ng-maxlength="8" ng-model="userName" ng-pattern="/^[a-z0-9]+$/i"  required>
+            </label>
+            </div>
+            <div class="padding">
+                <p ng-show="nedBankIDuserName.userName.$error.required">* Username is required</p>
+                <p ng-show="nedBankIDuserName.userName.$invalid && !nedBankIDuserName.userName.$pristine">* Please enter a Alfanumeric value</p>
+                <p ng-show="nedBankIDuserName.userName.$error.minlength">* Username must be longer than 5 characters</p>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-balanced" ng-disabled="nedBankIDuserName.$invalid" ng-click="goToPasswordPage(userName)">
+               Next
+            </button>
+                <p class="text-center">
+                    <a href="#/forgot-password">Forgot your details ?</a>
+                </p>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

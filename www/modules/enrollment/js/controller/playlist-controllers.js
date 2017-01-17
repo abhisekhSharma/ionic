@@ -8,7 +8,7 @@ define([], function() {
                 $scope.data = response.data;
                 console.log($scope.data);
             });
-    };
+    }
 
     return playListControllers;
 });

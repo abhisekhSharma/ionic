@@ -1,5 +1,54 @@
-<h1 style="margin-top: 100px">I am Home
+<!--for hiading top nav  hide-nav-bar="true" -->
+<ion-view view-title="Home Page">
+    <ion-content overflow-scroll="true">
+        <div class="container-fluid ">
 
-{{a}} {{vm.pageName}}
+            <div class="row">
+                <div class="col">
+                    <img class="nd-logo" ng-src="modules/enrollment/img/logo.png" alt="logo" />
+                </div>
+            </div>
 
-</h1>
+
+            <h1 class="main-headin main-headin--green text-center">Well, hello there!</h1>
+
+
+            <h2 class="sub-heading text-center">What would you like to do</h2>
+
+
+
+            <div class="net-container">
+                <div class="row">
+                    <div class="col" ng-href="#/app/nedBankID" href=" #/app/nedBankID ">
+                        <a href="#/app/nedBankID" href="#/app/nedBankID" id="login">
+                            <div class="inner-div">
+                                <img ng-src="modules/enrollment/img/login.png" width="100" height="100" alt="Login" />
+                                <p>Activate Banking</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <div class="inner-div">
+                            <img ng-src="modules/enrollment/img/apply.png" width="100" height="100" alt="Apply" />
+                            <p>Apply</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="border-top:none">
+                        <div class="inner-div">
+                            <img ng-src="modules/enrollment/img/services.png" width="100" height="100" alt="Services" />
+                            <p>Added Services</p>
+                        </div>
+                    </div>
+                    <div class="col" style="border-top:none">
+                        <div class="inner-div">
+                            <img ng-src="modules/enrollment/img/tools.png" width="100" height="100" alt="Tolls" />
+                            <p>Use Our Tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

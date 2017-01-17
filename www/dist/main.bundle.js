@@ -91,12 +91,19 @@
 	    __webpack_require__(3),
 	    __webpack_require__(4),
 	    __webpack_require__(5),
-	    __webpack_require__(6)
-	], __WEBPACK_AMD_DEFINE_RESULT__ = function(enrollmentModule, homeCtrl, menuCtrl, PlaylistsCtrl) {
+	    __webpack_require__(6),
+	    __webpack_require__(11),
+	    __webpack_require__(12),
+	    __webpack_require__(13)
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(enrollmentModule, homeCtrl, menuCtrl, PlaylistsCtrl, nedBankID, createNedbankID, createNedankPassword) {
 	    'use strict';
 	    enrollmentModule.controller('PlaylistsCtrl', PlaylistsCtrl);
 	    enrollmentModule.controller('homeCtrl', homeCtrl);
 	    enrollmentModule.controller('menuCtrl', menuCtrl);
+	    enrollmentModule.controller('nedBankID', nedBankID);
+	    enrollmentModule.controller('createNedbankID', createNedbankID);
+	    enrollmentModule.controller('createNedbankID', createNedankPassword);
+
 	    console.log('Enrollemnt Controller Binder');
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -141,16 +148,34 @@
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
 	    'use strict';
-	    return function($scope, $stateParams, $http) { 
-	        
-	        $scope.name="abhi";  
+
+	    function playListControllers($scope, $stateParams, $http) {
+	        $scope.name = 'Sudhanshu';  
 	        $http.get("http://services.groupkt.com/state/get/IND/UP")
 	            .then(function(response) {
 	                $scope.data = response.data;
 	                console.log($scope.data);
 	            });
-	    };
+	    }
+
+	    return playListControllers;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+	// define([], function($scope, $stateParams, $http) {
+	//     'use strict';
+
+	//     var playListControllers = {
+	//         test: 1,
+	//         getData: function() {
+	//             $http.get("http://services.groupkt.com/state/get/IND/UP")
+	//             .then(function(response) {
+	//                 $scope.data = response.data;
+	//                 console.log($scope.data);
+	//             });
+	//         }
+	//     };
+	//     return playListControllers;
+	// });
 
 /***/ },
 /* 7 */
@@ -191,53 +216,126 @@
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
 	    'use strict';  
-	     
+
 	    return angular.module('nedBank.route', [])
-	    .config(function($stateProvider, $urlRouterProvider) {
-	        $stateProvider
-	            .state('app', {
-	                url: '/app',
-	                templateUrl: 'modules/enrollment/templates/menu.html',
-	                abstract: true
+	        .config(function($stateProvider, $urlRouterProvider) {
+	            $stateProvider
+	                .state('app', {
+	                    url: '/app',
+	                    templateUrl: 'modules/enrollment/templates/menu.html',
+	                    abstract: true
+	                })
+
+	            .state('app.home', {
+	                    url: '/home',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/home.html',
+	                            controller: 'homeCtrl as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.nedBankID', {
+	                    url: '/nedBankID',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/ned-bank-id.html',
+	                            controller: 'nedBankID as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.createNedbankID', {
+	                    url: '/createNedbankID',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/create-ned-bank-id.html',
+	                            controller: 'createNedbankID as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.createNedbankPassword', {
+	                    url: '/createNedbankPassword',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/create-ned-bank-password.html',
+	                            controller: 'createNedbankPassword as vm'
+	                        }
+	                    }
+	                })
+
+	            .state('app.onboarding', {
+	                url: '/onboarding',
+	                views: {
+	                    'menuContent': {
+	                        templateUrl: 'modules/onboarding/templates/onboarding.html',
+	                        controller: 'onboardingCtrl'
+	                    }
+	                }
 	            })
 
-	        .state('app.home', {
-	            url: '/home',
-	            views: {
-	                'menuContent': {
-	                    templateUrl: 'modules/enrollment/templates/home.html',
-	                    controller: 'homeCtrl as vm'
+	            .state('app.playlists', {
+	                url: '/playlists',
+	                views: {
+	                    'menuContent': {
+	                        templateUrl: 'modules/enrollment/templates/playlists.html',
+	                        controller: 'PlaylistsCtrl'
+	                    }
 	                }
-	            }
-	        })
+	            });
 
-	        .state('app.onboarding', {
-	            url: '/onboarding',
-	            views: {
-	                'menuContent': {
-	                    templateUrl: 'modules/onboarding/templates/onboarding.html',
-	                    controller: 'onboardingCtrl'
-	                }
-	            }
-	        })
 
-	        .state('app.playlists', {
-	            url: '/playlists',
-	            views: {
-	                'menuContent': {
-	                    templateUrl: 'modules/enrollment/templates/playlists.html',
-	                    controller: 'PlaylistsCtrl'
-	                }
-	            }
+
+	            // if none of the above states are matched, use this as the fallback
+	            $urlRouterProvider.otherwise('/app/home');
 	        });
 
 
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
-	        // if none of the above states are matched, use this as the fallback
-	        $urlRouterProvider.otherwise('/app/home');
-	    });
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
 
-	  
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope) {
+	        var vm = this;
+	        vm.pageName = "NedBank ID";
+	        console.log('NedBank ID', $scope, vm);
+
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope) {
+	        var vm = this;
+	        vm.pageName = "NedBank ID";
+	        vm.goToPasswordPage = function(userName) {
+	            debugger;
+	            $state.go('app.createNedbankPassword');
+	        };
+	        console.log('NedBank ID', $scope, vm);
+
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope) {
+	        var vm = this;
+	        vm.pageName = "Create NedBank Password";
+	        console.log('Create NedBank Password', $scope, vm);
+
+	    };
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ }

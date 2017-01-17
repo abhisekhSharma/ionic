@@ -58,13 +58,13 @@ gulp.task('git-check', function(done) {
 // Custome Added
 
 // This will run sass and watch with ionic serve also updtaed some paths in ionic.config.json in watch pattern
-gulp.task('serve:before', ['sass', 'watch']);
+gulp.task('serve:before', ['watch']);
 
-gulp.task('test', function (done) {
-  new Server({
-    configFile: __dirname+'/tests/unit-tests.conf.js',
-    singleRun: true
-  }, done).start();
+gulp.task('test', function(done) {
+    new Server({
+        configFile: __dirname + '/tests/unit-tests.conf.js',
+        singleRun: true
+    }, done).start();
 });
 
 
@@ -75,14 +75,14 @@ gulp.task('lint', function() {
 });
 
 gulp.task('sass-lint', function() {
-    return gulp.src(paths.sass)
-        .pipe(sassLint())
-        .pipe(sassLint.format())
-        .pipe(sassLint.failOnError())
+    // return gulp.src(paths.sass)
+    //     .pipe(sassLint())
+    //     .pipe(sassLint.format())
+    //     .pipe(sassLint.failOnError())
 });
 
 gulp.task('watch', function() {
-    gulp.watch(paths.sass, ['sass-lint']);
+    //gulp.watch(paths.sass, ['sass-lint']);
     gulp.watch(paths.sass, ['sass']);
     gulp.watch(paths.jsHint, ['lint']);
 });
