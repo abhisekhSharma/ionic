@@ -1,0 +1,22 @@
+@import '_home.scss';
+@import '_ned-bank-id';
+.mar-top-50 {
+    margin-top: 50px;
+}
+
+.sub-heading {
+    color: $grey;
+}
+
+.inner-div {
+    top: 50%;
+    margin-top: -60px;
+    left: 50%;
+    margin-left: -50px;
+    position: absolute;
+}
+
+.inner-div p {
+    text-align: center;
+    color: $grey;
+}

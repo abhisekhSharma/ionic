@@ -55,101 +55,32 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2), 
+	        __webpack_require__(7),
+	        __webpack_require__(10)], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	    // Ionic Starter App
 
-	angular.module('starter', ['ionic', 'starter.controllers'])
+	    // angular.module is a global place for creating, registering and retrieving Angular modules
+	    // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+	    // the 2nd parameter is an array of 'requires'
+	    // 'starter.controllers' is found in controllers.js
+	    angular.module('nedBank', ['ionic', 'nedBank.enrollment', 'nedBank.onBoarding','nedBank.route'])
 
-	.run(function($ionicPlatform) {
-	    $ionicPlatform.ready(function() {
-	        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-	        // for form inputs)
-	        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-	            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-	            cordova.plugins.Keyboard.disableScroll(true);
+	    .run(function($ionicPlatform) {
+	        $ionicPlatform.ready(function() {
+	            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+	            // for form inputs)
+	            if (window.cordova && window.cordova.plugins.Keyboard) {
+	                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+	                cordova.plugins.Keyboard.disableScroll(true);
 
-	        }
-	        if (window.StatusBar) {
-	            // org.apache.cordova.statusbar required
-	            StatusBar.styleDefault();
-	        }
+	            }
+	            if (window.StatusBar) {
+	                // org.apache.cordova.statusbar required
+	                StatusBar.styleDefault();
+	            }
+	        });
 	    });
-	})
-
-	.config(function($stateProvider, $urlRouterProvider) {
-
-	    // Ionic uses AngularUI Router which uses the concept of states
-	    // Learn more here: https://github.com/angular-ui/ui-router
-	    // Set up the various states which the app can be in.
-	    // Each state's controller can be found in controllers.js
-	    $stateProvider
-
-	    // setup an abstract state for the tabs directive
-	        .state('tab', {
-	        url: '/tab',
-	        abstract: true,
-	        templateUrl: 'templates/tabs.html'
-	    })
-
-	    // Each tab has its own nav history stack:
-
-	    .state('tab.dash', {
-	        url: '/dash',
-	        views: {
-	            'tab-dash': {
-	                templateUrl: 'templates/tab-dash.html',
-	                controller: 'DashCtrl'
-	            }
-	        }
-	    })
-
-	    .state('tab.chats', {
-	            url: '/chats',
-	            views: {
-	                'tab-chats': {
-	                    templateUrl: 'templates/tab-chats.html',
-	                    controller: 'ChatsCtrl'
-	                }
-	            }
-	        })
-	        .state('tab.chat-detail', {
-	            url: '/chats/:chatId',
-	            views: {
-	                'tab-chats': {
-	                    templateUrl: 'templates/chat-detail.html',
-	                    controller: 'ChatDetailCtrl'
-	                }
-	            }
-	        })
-
-	    .state('tab.account', {
-	            url: '/account',
-	            views: {
-	                'tab-account': {
-	                    templateUrl: 'templates/tab-account.html',
-	                    controller: 'AccountCtrl'
-	                }
-	            }
-	        })
-	        .state('tab.playlists', {
-	            url: '/playlists',
-	            views: {
-	                'tab-account': {
-	                    templateUrl: 'templates/playlists.html',
-	                    controller: 'PlaylistCtrl'
-	                }
-	            }
-	        })
-
-
-
-
-
-	    // if none of the above states are matched, use this as the fallback
-	    $urlRouterProvider.otherwise('/tab/dash');
-	    // $urlRouterProvider.otherwise('/app/playlists');
-
-	});
-
 
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -160,52 +91,375 @@
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	    __webpack_require__(3),
 	    __webpack_require__(4),
-	    __webpack_require__(5)
-	], __WEBPACK_AMD_DEFINE_RESULT__ = function(module,dash,playlist) {
+	    __webpack_require__(5),
+	    __webpack_require__(6),
+	    __webpack_require__(12),
+	    __webpack_require__(13),
+	    __webpack_require__(11),
+	    __webpack_require__(14),
+	    __webpack_require__(15),
+	    __webpack_require__(16),
+	    __webpack_require__(17)
+
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(enrollmentModule, homeCtrl, menuCtrl, PlaylistsCtrl, nedBankID, createNedbankID, createNedbankPassword, nedBankOTP, createDeviceName, termsAndConditions, createDevicePin) {
 	    'use strict';
-	    module.controller('DashCtrl',dash); 
-	    module.controller('PlaylistCtrl',playlist);    
-	    console.log('controller binder'); 
+	    enrollmentModule.controller('PlaylistsCtrl', PlaylistsCtrl);
+	    enrollmentModule.controller('homeCtrl', homeCtrl);
+	    enrollmentModule.controller('menuCtrl', menuCtrl);
+	    enrollmentModule.controller('nedBankID', nedBankID);
+	    enrollmentModule.controller('createNedbankID', createNedbankID);
+	    enrollmentModule.controller('createNedbankPassword', createNedbankPassword);
+	    enrollmentModule.controller('nedBankOTP', nedBankOTP);
+	    enrollmentModule.controller('createDeviceName', createDeviceName);
+	    enrollmentModule.controller('termsAndConditions', termsAndConditions);
+	    enrollmentModule.controller('createDevicePin', createDevicePin);
+	    console.log('Enrollemnt Controller Binder');
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
-	    'use strict';
-	    return angular.module('starter.controllers', []);
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return angular.module('nedBank.enrollment', []);
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ },
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
-	    'use strict';
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
 	    return function($scope) {
-	    var vm = this;
-	    console.log('dashctrl');
-	}
+	        $scope.a = 'Ionic' ;  
+	        var vm = this;
+	        vm.pageName="firstPage";
+	        //console.log('Home Ctrl', $scope, vm);
+
+	    };
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-
 
 /***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
-
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function(require, factory) {
 	    'use strict';
-	    return function($scope, $stateParams, $http) {
-	    $http.get("http://services.groupkt.com/state/get/IND/UP")
-	        .then(function(response) {
-	            $scope.data = response.data;
-	            console.log($scope.data);
+	    return function($scope, $stateParams, $http) {   
+	        console.log('Menu Ctrl');
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	    'use strict';
+
+	    function playListControllers($scope, $stateParams, $http) {
+	        $scope.name = 'Sudhanshu';  
+	        $http.get("http://services.groupkt.com/state/get/IND/UP")
+	            .then(function(response) {
+	                $scope.data = response.data;
+	                console.log($scope.data);
+	            });
+	    }
+
+	    return playListControllers;
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+	// define([], function($scope, $stateParams, $http) {
+	//     'use strict';
+
+	//     var playListControllers = {
+	//         test: 1,
+	//         getData: function() {
+	//             $http.get("http://services.groupkt.com/state/get/IND/UP")
+	//             .then(function(response) {
+	//                 $scope.data = response.data;
+	//                 console.log($scope.data);
+	//             });
+	//         }
+	//     };
+	//     return playListControllers;
+	// });
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	    __webpack_require__(8),
+	    __webpack_require__(9)
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(onboardingModule, onboardingCtrl) {
+	    'use strict';
+	    onboardingModule.controller('onboardingCtrl', onboardingCtrl);
+	    console.log('Onboarding Controller Binder');
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return angular.module('nedBank.onBoarding', []);
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope, $stateParams, $http) {   
+	        console.log('onboardingCtrl Ctrl');
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+
+	    return angular.module('nedBank.route', [])
+	        .config(function($stateProvider, $urlRouterProvider) {
+	            $stateProvider
+	                .state('app', {
+	                    url: '/app',
+	                    templateUrl: 'modules/enrollment/templates/menu.html',
+	                    abstract: true
+	                })
+
+	            .state('app.home', {
+	                    url: '/home',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/home.html',
+	                            controller: 'homeCtrl as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.nedBankID', {
+	                    url: '/nedBankID',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/ned-bank-id.html',
+	                            controller: 'nedBankID as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.createNedbankID', {
+	                    url: '/createNedbankID',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/create-ned-bank-id.html',
+	                            controller: 'createNedbankID as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.createNedbankPassword', {
+	                    url: '/createNedbankPassword',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/create-ned-bank-password.html',
+	                            controller: 'createNedbankPassword as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.nedBankOTP', {
+	                    url: '/nedBankOTP',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/ned-bank-otp.html',
+	                            controller: 'nedBankOTP as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.createDeviceName', {
+	                    url: '/createDeviceName',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/create-device-name.html',
+	                            controller: 'createDeviceName as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.termsAndConditions', {
+	                    url: '/termsAndConditions',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/terms-and-conditions.html',
+	                            controller: 'termsAndConditions as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.createDevicePin', {
+	                    url: '/createDevicePin',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/create-device-pin.html',
+	                            controller: 'createDevicePin as vm'
+	                        }
+	                    }
+	                })
+	                .state('app.congrats', {
+	                    url: '/congrats',
+	                    views: {
+	                        'menuContent': {
+	                            templateUrl: 'modules/enrollment/templates/congrats.html'
+	                        }
+	                    }
+	                })
+
+	            .state('app.onboarding', {
+	                url: '/onboarding',
+	                views: {
+	                    'menuContent': {
+	                        templateUrl: 'modules/onboarding/templates/onboarding.html',
+	                        controller: 'onboardingCtrl'
+	                    }
+	                }
+	            })
+
+	            .state('app.playlists', {
+	                url: '/playlists',
+	                views: {
+	                    'menuContent': {
+	                        templateUrl: 'modules/enrollment/templates/playlists.html',
+	                        controller: 'PlaylistsCtrl'
+	                    }
+	                }
+	            });
+
+
+
+	            // if none of the above states are matched, use this as the fallback
+	            $urlRouterProvider.otherwise('/app/home');
 	        });
-	}
+
+
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope, $state) {
+	        var vm = this;
+	        vm.pageName = "Create NedBank Password";
+	        vm.goToNextPage = function(password) {
+	            debugger;
+	            $state.go('app.nedBankOTP');
+	        };
+	        console.log('Create NedBank Password', $scope, vm);
+
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope) {
+	        var vm = this;
+	        vm.pageName = "NedBank ID";
+	        console.log('NedBank ID', $scope, vm);
+
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope, $state) {
+	        var vm = this;
+	        vm.pageName = "Create NedBank ID page";
+	        vm.goToPasswordPage = function(userName) {
+	            debugger;
+	            $state.go('app.createNedbankPassword');
+	        };
+
+	        console.log('Create NedBank ID', $scope, vm);
+
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope, $state) {
+	        var vm = this;
+	        vm.pageName = "NedBank OTP page";
+	        vm.goToNextPage = function() {
+	            $state.go('app.nedBankOTP');
+	        };
+	        console.log('NedBank OTP page', $scope, vm);
+
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope, $state) {
+	        var vm = this;
+	        vm.pageName = "Create NedBank Device Name";
+	        console.log('Create NedBank Device Name', $scope, vm);
+	        vm.goToNextPage = function() {
+	            $state.go('app.termsAndConditions');
+	        };
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope, $state) {
+	        var vm = this;
+	        vm.pageName = "NedBank Terms and Conditions page";
+
+	        console.log('NedBank Terms and Conditions page', $scope, vm);
+
+	    };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {  
+	    'use strict';  
+	    return function($scope, $state) {
+	        var vm = this;
+	        vm.pageName = "Create NedBank Password";
+	        vm.goToNextPage = function(devicePin) {
+	            debugger;
+	            $state.go('app.nedBankOTP');
+	        };
+	        console.log('Create NedBank Password', $scope, vm);
+
+	    };
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ }

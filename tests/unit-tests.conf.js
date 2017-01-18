@@ -1,5 +1,9 @@
 // Karma configuration
-// Generated on Mon Dec 12 2016 13:18:27 GMT+0530 (IST)
+// Generated on Fri Jan 06 2017 12:48:18 GMT+0530 (IST)
+var path = require('path'),
+    webpack = require('webpack');
+var webpackConfig = require('../webpack.config.js');
+webpackConfig.entry = {};
 
 module.exports = function(config) {
     config.set({
@@ -11,24 +15,23 @@ module.exports = function(config) {
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jasmine'],
+        plugins: [
+            require("karma-webpack"),
+            'karma-jasmine',
+            'karma-phantomjs-launcher',
+            'karma-mocha-reporter',
+            'karma-chrome-launcher'
+        ],
 
 
         // list of files / patterns to load in the browser
-        // files: [
-        //     '../www/lib/angular/angular.js',
-        //     '../www/lib/ngCordova/dist/ng-cordova.js',
-        //     '../www/lib/moment.min.js',
-        //     '../www/js/*.js',
-        //     '../www/lib/angular-mocks/angular-mocks.js',
-        //     'unit-tests/*.js'
-        // ],
         files: [
             // all files ending in "_test"
-            {pattern: 'unit-tests/*.js', watched: false},
+            '../www/lib/angular/angular.js',
+            '../www/lib/angular-mocks/angular-mocks.js',
+            { pattern: '../tests/unit-tests/**/*.js', watched: false },
             // each file acts as entry point for the webpack configuration
-         ],
-
-
+        ],
         // list of files to exclude
         exclude: [],
 
@@ -36,29 +39,36 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-        // add webpack as preprocessor
-            'unit-tests/*.js': ['webpack'],
-            'test/**/*_test.js': ['webpack']
+            './www/dist/www/js/*.js': ['webpack'],
+            '../tests/unit-tests/**/*.js*': ['webpack']
         },
-        webpack: {
-            // karma watches the test entry points
-            // (you don't need to specify the entry option)
-            // webpack watches dependencies
-
-            // webpack configuration
-        },
-
+        webpack: webpackConfig,
         webpackMiddleware: {
-        // webpack-dev-middleware configuration
-        // i. e.
-        stats: 'errors-only'
+            // webpack-dev-middleware configuration
+            // i. e.
+            stats: 'errors-only'
         },
+
 
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['mocha'],
+        mochaReporter: {
+            colors: {
+                success: 'blue',
+                info: 'bgGreen',
+                warning: 'cyan',
+                error: 'bgRed'
+            },
+            symbols: {
+                success: '√',
+                info: '#',
+                warning: '!',
+                error: 'x'
+            }
+        },
 
 
         // web server port
@@ -80,15 +90,11 @@ module.exports = function(config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
 
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: true,
-
-        // Concurrency level
-        // how many browser should be started simultaneous
-        concurrency: Infinity
+        singleRun: false,
     })
 }

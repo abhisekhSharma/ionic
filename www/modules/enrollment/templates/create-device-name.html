@@ -1,0 +1,27 @@
+<ion-view view-title="Activate Baninking">
+    <ion-content class="has-subheader splash padding">
+        <header>
+            <h1 class="main-headin main-headin--green text-center">Create a device name</h1>
+            <p class="sub-heading text-center">Keeping you safe - know where your transactions happen</p>
+        </header>
+        <form name="nedBankDeviceName" novalidate>
+            <div class="list">
+                <p class="input-label">Nedbank ID deviceName</p>
+                <label class="item item-input">
+              <input type="text" ng-minlength="5" ng-maxlength="8" ng-model="deviceName" ng-pattern="/^[a-z0-9]+$/i"  required>
+            </label>
+            </div>
+            <div class="padding">
+                <p ng-show="nedBankDeviceName.deviceName.$error.required">* Device name is required</p>
+                <p ng-show="nedBankDeviceName.deviceName.$invalid && !nedBankDeviceName.deviceName.$pristine">* Please enter a Alfanumeric value</p>
+                <p ng-show="nedBankDeviceName.deviceName.$error.minlength">* Device name must be longer than 5 characters</p>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-balanced" ng-disabled="nedBankDeviceName.$invalid" ng-click="vm.goToNextPage(deviceName)">
+               Next
+            </button>
+
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
