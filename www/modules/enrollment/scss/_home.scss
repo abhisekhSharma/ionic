@@ -50,7 +50,7 @@ $grey: #666666;
     height: 100px;
     display: block;
     margin: auto;
-    margin-top: 50px;
+    // margin-top: 50px;
 }
 
 .tab-nav.tabs {
@@ -92,4 +92,8 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position-x: 50%;
+}
+
+header p {
+    text-align: center;
 }

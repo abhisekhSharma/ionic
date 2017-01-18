@@ -3,7 +3,7 @@ define([], function() {  
     return function($scope, $state) {
         var vm = this;
         vm.pageName = "Create NedBank Password";
-        vm.goToNextPage = function(password) {
+        vm.goToNextPage = function(devicePin) {
             debugger;
             $state.go('app.nedBankOTP');
         };

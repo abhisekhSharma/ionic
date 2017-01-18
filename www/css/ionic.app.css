@@ -9866,8 +9866,7 @@ h6 {
   width: 100px;
   height: 100px;
   display: block;
-  margin: auto;
-  margin-top: 50px; }
+  margin: auto; }
 
 .tab-nav.tabs {
   display: none !important; }
@@ -9900,6 +9899,9 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position-x: 50%; }
+
+header p {
+  text-align: center; }
 
 .ned-list div {
   display: inline-block;

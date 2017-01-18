@@ -1,13 +1,14 @@
 define([], function() {  
     'use strict';  
-    return function($scope) {
+    return function($scope, $state) {
         var vm = this;
-        vm.pageName = "NedBank ID";
+        vm.pageName = "Create NedBank ID page";
         vm.goToPasswordPage = function(userName) {
             debugger;
             $state.go('app.createNedbankPassword');
         };
-        console.log('NedBank ID', $scope, vm);
+
+        console.log('Create NedBank ID', $scope, vm);
 
     };
 });

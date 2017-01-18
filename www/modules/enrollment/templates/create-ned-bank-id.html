@@ -1,8 +1,8 @@
 <ion-view view-title="Activate Baninking">
-    <ion-content>
+    <ion-content class="has-subheader splash padding">
         <form name="nedBankIDuserName" novalidate>
             <div class="list">
-                <p class="input-label">Nedbak ID Username</p>
+                <p class="input-label">Nedbamk ID Username</p>
                 <label class="item item-input">
               <input type="text" ng-minlength="5" ng-maxlength="8" ng-model="userName" ng-pattern="/^[a-z0-9]+$/i"  required>
             </label>
@@ -13,7 +13,7 @@
                 <p ng-show="nedBankIDuserName.userName.$error.minlength">* Username must be longer than 5 characters</p>
             </div>
             <div class="padding">
-                <button class="button button-block button-balanced" ng-disabled="nedBankIDuserName.$invalid" ng-click="goToPasswordPage(userName)">
+                <button class="button button-block button-balanced" ng-disabled="nedBankIDuserName.$invalid" ng-click="vm.goToPasswordPage(userName)">
                Next
             </button>
                 <p class="text-center">

@@ -46,6 +46,50 @@ define([], function() {  
                         }
                     }
                 })
+                .state('app.nedBankOTP', {
+                    url: '/nedBankOTP',
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'modules/enrollment/templates/ned-bank-otp.html',
+                            controller: 'nedBankOTP as vm'
+                        }
+                    }
+                })
+                .state('app.createDeviceName', {
+                    url: '/createDeviceName',
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'modules/enrollment/templates/create-device-name.html',
+                            controller: 'createDeviceName as vm'
+                        }
+                    }
+                })
+                .state('app.termsAndConditions', {
+                    url: '/termsAndConditions',
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'modules/enrollment/templates/terms-and-conditions.html',
+                            controller: 'termsAndConditions as vm'
+                        }
+                    }
+                })
+                .state('app.createDevicePin', {
+                    url: '/createDevicePin',
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'modules/enrollment/templates/create-device-pin.html',
+                            controller: 'createDevicePin as vm'
+                        }
+                    }
+                })
+                .state('app.congrats', {
+                    url: '/congrats',
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'modules/enrollment/templates/congrats.html'
+                        }
+                    }
+                })
 
             .state('app.onboarding', {
                 url: '/onboarding',
