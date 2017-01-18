@@ -1,0 +1,15 @@
+.ned-list {
+    div {
+        display: inline-block;
+        vertical-align: top;
+        p {
+            color: $green;
+            text-decoration: none;
+            margin: 20px 0 5px 0;
+        }
+        span {
+            text-decoration: none;
+            color: $grey;
+        }
+    }
+}
