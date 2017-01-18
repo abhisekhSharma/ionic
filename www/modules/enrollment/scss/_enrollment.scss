@@ -1,4 +1,4 @@
-@import '_home.scss';
+@import '_home';
 @import '_ned-bank-id';
 .mar-top-50 {
     margin-top: 50px;
@@ -19,4 +19,17 @@
 .inner-div p {
     text-align: center;
     color: $grey;
+}
+
+header p {
+    text-align: center;
+}
+
+form p a {
+    color: $grey;
+}
+
+// Global Overwrites
+.input-label {
+    width: 100%;
 }

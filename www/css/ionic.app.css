@@ -9900,9 +9900,6 @@ body {
   background-size: contain;
   background-position-x: 50%; }
 
-header p {
-  text-align: center; }
-
 .ned-list div {
   display: inline-block;
   vertical-align: top; }
@@ -9930,3 +9927,12 @@ header p {
 .inner-div p {
   text-align: center;
   color: #666666; }
+
+header p {
+  text-align: center; }
+
+form p a {
+  color: #666666; }
+
+.input-label {
+  width: 100%; }
