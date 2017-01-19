@@ -2,13 +2,13 @@
     <ion-content class=" splash padding">
         <form name="nedBankIDuserName" novalidate>
             <div class="list">
-                <p class="input-label">Nedbamk ID Username</p>
+                <p class="input-label">Nedbank ID Username</p>
                 <label class="item item-input">
-              <input type="text" ng-minlength="5" ng-maxlength="8" ng-model="userName" ng-pattern="/^[a-z0-9]+$/i"  required>
+              <input type="text" name="userName" ng-minlength="5" ng-maxlength="8" ng-model="userName" ng-pattern="/^[a-z0-9]+$/i"  required>
             </label>
             </div>
             <div class="padding">
-                <p ng-show="nedBankIDuserName.userName.$error.required">* Username is required</p>
+                <p ng-show="nedBankIDuserName.userName.$error.required" class="ng-hide">* Username is required</p>
                 <p ng-show="nedBankIDuserName.userName.$invalid && !nedBankIDuserName.userName.$pristine">* Please enter a Alfanumeric value</p>
                 <p ng-show="nedBankIDuserName.userName.$error.minlength">* Username must be longer than 5 characters</p>
             </div>

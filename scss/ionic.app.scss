@@ -15,6 +15,8 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+// overwrite ionic variables
+$balanced: #1f6040;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic

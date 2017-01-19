@@ -8,19 +8,19 @@
             <div class="list">
                 <p class="input-label">Device Pin</p>
                 <label class="item item-input">
-              <input type="password" name="password" ng-minlength="8" ng-maxlength="16" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" ng-model="devicePin" required>
+              <input type="password" name="devicePin" ng-minlength="8" ng-maxlength="16" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" ng-model="devicePin" required>
              <!--http://stackoverflow.com/questions/14850553/javascript-regex-for-password-containing-at-least-8-characters-1-number-1-uppe-->
             </label>
                 <p class="input-label">Re-enter Device Pin</p>
                 <label class="item item-input">
-              <input type="password" name="password" ng-minlength="8" ng-maxlength="16" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" ng-model="reRevicePin" required>
+              <input type="password" name="confirmDevicePin" ng-minlength="8" ng-maxlength="16" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" ng-model="confirmDevicePin" required>
              <!--http://stackoverflow.com/questions/14850553/javascript-regex-for-password-containing-at-least-8-characters-1-number-1-uppe-->
             </label>
             </div>
             <div class="padding">
-                <p ng-show="nedBankDevicePin.password.$error.required">* Device Pin is required</p>
-                <p ng-show="nedBankDevicePin.password.$error.minlength">* Device Pin must be longer than 7 characters</p>
-                <p ng-show="nedBankDevicePin.password.$error.maxlength">* Device Pin must be lesser than 16 characters</p>
+                <p ng-show="nedBankDevicePin.devicePin.$error.required">* Device Pin is required</p>
+                <p ng-show="nedBankDevicePin.devicePin.$error.minlength">* Device Pin must be longer than 7 characters</p>
+                <p ng-show="nedBankDevicePin.devicePin.$error.maxlength">* Device Pin must be lesser than 16 characters</p>
             </div>
             <div class="padding">
                 <a class="button button-block button-balanced" ng-href="#/app/congrats">
