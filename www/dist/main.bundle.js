@@ -125,7 +125,6 @@
 	        var vm = this;
 	        vm.pageName = "Create NedBank Password";
 	        vm.goToNextPage = function(password) {
-	            debugger;
 	            $state.go('app.nedBankOTP');
 	        };
 	        console.log('Create NedBank Password', $scope, vm);
@@ -212,7 +211,6 @@
 	        var vm = this;
 	        vm.pageName = "Create NedBank ID page";
 	        vm.goToPasswordPage = function(userName) {
-	            debugger;
 	            $state.go('app.createNedbankPassword');
 	        };
 
@@ -294,7 +292,6 @@
 	        var vm = this;
 	        vm.pageName = "Create NedBank Password";
 	        vm.goToNextPage = function(devicePin) {
-	            debugger;
 	            $state.go('app.nedBankOTP');
 	        };
 	        console.log('Create NedBank Password', $scope, vm);

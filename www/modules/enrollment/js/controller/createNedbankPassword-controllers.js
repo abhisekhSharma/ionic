@@ -4,7 +4,6 @@ define([], function() {  
         var vm = this;
         vm.pageName = "Create NedBank Password";
         vm.goToNextPage = function(password) {
-            debugger;
             $state.go('app.nedBankOTP');
         };
         console.log('Create NedBank Password', $scope, vm);

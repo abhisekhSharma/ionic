@@ -4,7 +4,6 @@ define([], function() {  
         var vm = this;
         vm.pageName = "Create NedBank ID page";
         vm.goToPasswordPage = function(userName) {
-            debugger;
             $state.go('app.createNedbankPassword');
         };
 
